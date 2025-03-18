@@ -1,0 +1,15 @@
+#mask_black{
+    z-index: 10;
+}
+
+#dialog{
+    z-index: 20;
+}
+
+#app{
+    z-index: 30;
+}
+
+#info{
+    z-index: 100;
+}

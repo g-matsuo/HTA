@@ -1,0 +1,50 @@
+.top_container{
+    background-image: url(/image/msg_bk_a.png);
+}
+
+.top_menus{
+    max-width: 200px;
+    max-height: 200px;
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    margin: auto;
+}.top_menus_login{
+
+}.top_menus_hold{
+
+}.top_menus_market{
+
+}
+
+.top_msg_group{
+    height: fit-content;
+    margin: auto;
+    padding: 30px;
+
+}.top_msg_group div{
+    font-size: 25px;
+    margin: 30px auto;
+    padding: 30px;
+    
+}
+
+.top_button_group{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+
+
+@media screen and (min-width:801px){
+    .top_button_group, .top_msg_group{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:800px){
+    .top_button_group, .top_msg_group{
+        width: 70%;
+    }
+}

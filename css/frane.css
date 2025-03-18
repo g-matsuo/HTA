@@ -1,0 +1,90 @@
+html{
+    position: relative;
+}
+
+body{
+    margin: 0;
+}
+
+header{
+    height: 200px;
+}
+
+content{
+    width: 100%;
+    background-color:rgb(60, 60, 60);
+    padding: 10px 0px;
+}
+
+footer{
+    width: 100%;
+    background-color:rgb(60, 60, 60);
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+#mask_black{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    display:none;
+}
+
+.frame_element{
+    width: 95%;
+    margin: 0 auto 15px auto;
+}
+
+.button{
+    cursor: pointer;
+    font-weight: bold;
+
+}.button * {
+    pointer-events: none;
+    
+}
+
+.select_button{
+    background-color: rgb(23, 255, 23) !important;
+}
+
+.success_button{
+    background-color: rgb(255, 254, 206);
+    color: rgb(40, 40, 40);
+}
+
+.cancel_button{
+    background-color: rgb(121, 121, 121);
+    color: white;
+}
+
+.error_msg{
+    opacity: 0;
+    background-color: rgb(255, 120, 120);
+    color: white;
+    font-weight: bold;
+    text-indent: 20px;
+    padding: 5px 0;
+    display: block;
+    
+}
+
+.no_responce_flex{
+    display: flex;
+}
+
+@media screen and (min-width:801px){
+    .responce_flex{
+        display: flex;
+    }
+    
+}
+
+@media screen and (max-width:800px){
+    html{
+        min-width: 600px;
+    }
+}

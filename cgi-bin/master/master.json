@@ -1,0 +1,14 @@
+{
+    "prod":{
+        "host" : "",
+        "user" : "",
+        "password" : "",
+        "schema" : ""
+    },
+    "dev":{
+        "host" : "192.168.56.100",
+        "user" : "g-matsuo",
+        "password" : "mord_reD15",
+        "schema" : "hta"
+    }
+}
