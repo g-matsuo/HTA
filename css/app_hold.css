@@ -1,0 +1,15 @@
+.hold_filed{
+    width: 95vw;
+    height: 95vh;
+    background-color: rgb(255, 180, 180);
+}
+
+.hold_title{
+    
+}
+
+@media screen and (min-width:801px){
+}
+
+@media screen and (max-width:800px){
+}

@@ -10,6 +10,7 @@
     height: 50px;
     font-size: clamp(20px, 1.8vw, 25px);
     border: solid 1px black;
+
 }
 
 @media screen and (min-width:801px){

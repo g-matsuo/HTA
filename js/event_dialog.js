@@ -25,7 +25,7 @@ async function click_Dialog_Events(e, data){
             break;
 
         case "hold":
-            
+
             break;
 
         default:

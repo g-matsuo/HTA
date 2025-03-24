@@ -18,16 +18,6 @@ function resize_scroll_filed(target, filed_element, elements){
     $(target).height(scroll_filed_size);
 }
 
-function dialog_show(){
-    $(".black_mask").fadeIn();
-    $("#dialog").fadeIn();
-}
-
-function dialog_close(){
-    $(".black_mask").fadeOut();
-    $("#dialog").fadeOut();
-}
-
 function setInputData(elements){
     let rtn = {};
     elements.each(function(index, element) {

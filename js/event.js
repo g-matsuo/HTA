@@ -17,6 +17,10 @@ function click_Events(e){
         case "app":
             click_App_Events(e, data);
             break;
+    
+        case "info":
+            click_Info_Events(e, data);
+            break;
 
         default:
             console.log("DefaultEvents:「" + e.target.attributes["value"].value + "」なんて処理されないよ！")
@@ -25,6 +29,11 @@ function click_Events(e){
 
 function hide_dialog(){
     $('#dialog').fadeOut(200);
+    $('#mask_black').fadeOut(200);
+}
+
+function hide_app(){
+    $('#app').fadeOut(200);
     $('#mask_black').fadeOut(200);
 }
 
@@ -65,7 +74,7 @@ function show_info(title, msgs, attrs){
             $('.info_buttons').attr(key, value);
         });
 
-        changeFrontUi("dialog");
+        changeFrontUi("info");
         $("#mask_black").fadeIn(200);
         viewTopDownMove($("#dialog"));
     });
@@ -111,4 +120,12 @@ function setErrorMsg(arrError){
         }
         
     });
+}
+function checkLoginUser(){
+    if(dicUser){
+        let responce = Ajax({"flg":"checkLoginUser","token":dicUser["token"]});
+        return responce["flg"];
+    }else{
+        return false;
+    }
 }

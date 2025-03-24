@@ -8,10 +8,19 @@ function click_Page_Events(e, data){
             break;
 
         case "hold":
-            show_app(data["flg"], "php");
+            if(checkLoginUser()){
+                show_app(data["flg"], "php");
+            }else{
+                show_info(
+                    "Info",
+                    ["ログインがされていません。","ログインフォームからログインをしてください。"],
+                    {"type":"info", "value":"login_guidance"}
+                )
+            }
             break;
 
         case "market":
+            show_app(data["flg"], "php");
             break;
 
         default:

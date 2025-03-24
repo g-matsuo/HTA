@@ -1,7 +1,7 @@
 <?php
     function getLoginUser($flg, $rdb, $data = null){
-        $columns = "name, token";
-        
+        $columns = "id, name, token";
+
         switch($flg){
             case "login":
                 return $rdb->actSelect('

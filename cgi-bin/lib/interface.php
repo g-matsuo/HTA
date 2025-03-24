@@ -8,7 +8,8 @@
 
         //user
         if($_POST["token"] != "null"){
-            $user = $rdb->actSelect('SELECT * FROM table_customer WHERE token = ' . $_POST["token"]);
+            $user = $rdb->actSelect('SELECT * FROM table_customer WHERE token = "' . $_POST["token"] . '"');
+            $user = $user[0];
         }
 
         //mainData
@@ -26,17 +27,22 @@
                         $rdb->actSql('UPDATE hta.table_customer SET token="' . $_COOKIE["PRICING_DATA_ORIGINAL_COOKIE"] . '" WHERE  id=' . $responce[0]["id"]);
 
                         //data
-                        $result["data"] = $responce;
+                        $result["data"] = getLoginUser("login", $rdb, $_POST["data"]);
                         $result["msg"] = "ログインしました。";
                     }else{
-                        $result["msg"] = ["failure" => "入力された「ログインID」と「パスワード」が一致しません。"];
                         $result["flg"] = false;
+                        $result["msg"] = ["failure" => "入力された「ログインID」と「パスワード」が一致しません。"];
                     }
                 }
                 break;
-
             case "hold" :
 
+                break;
+            case "checkLoginUser" :
+                if(!isset($user)){
+                    $result["flg"] = false;
+                }
+                break;
             default :
         }
 
