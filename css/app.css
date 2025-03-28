@@ -2,6 +2,7 @@
     position: fixed;
     background-color:rgb(176, 167, 255);
     border: 1px solid #7e7e7e;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -17,11 +18,14 @@
     background-color: rgb(40, 40, 40);
     color:white;
     text-align: center;
-    margin-bottom: 10px;
+    font-size: clamp(25px, 1.8vw, 30px);
+
 }
 
 .app_body{
     overflow-y: scroll;
+    width: 100%;
+    position: relative;
 }
 
 .app_contents_group{
@@ -33,6 +37,7 @@
 .app_button_group{
     position: absolute;
     width: 100%;
+    -webkit-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
     left: 50%;
     bottom: 0;
@@ -61,13 +66,35 @@
     margin: auto;
 }
 
-
 .app_caption{
     font-size: clamp(20px, 1.8vw, 25px);
 }
 
-.app_title{
-    font-size: clamp(25px, 1.8vw, 30px);
+.app_matches_box{
+    width: 98%;
+    height: fit-content;
+    white-space: nowrap;
+    display: none;
+    position: absolute;
+    max-height: 50vh;
+    background-color: white;
+    transform: translate(-50%, 0);
+    top: 100%;
+    left: 50%;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    overflow-y: auto;
+}
+
+.app_matches_item{
+    width: 95%;
+    background-color: #c3c3ff;
+    margin: 5px auto;
+    padding: 5px 0px;
+    border-radius: 50px;
+    text-align: center;
+    color: white;
 }
 
 @media screen and (min-width:801px){

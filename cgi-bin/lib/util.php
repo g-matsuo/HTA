@@ -41,7 +41,7 @@
         $cokkie_key = "PRICING_DATA_ORIGINAL_COOKIE";
 
         if(isset($_COOKIE[$cokkie_key])){
-            $cookieUsers = $rdb->actSelect('SELECT token FROM table_customer WHERE token = "' . $_COOKIE[$cokkie_key] . '"');
+            $cookieUsers = $rdb->actSelect('SELECT customer_token FROM customer_masters WHERE customer_token = "' . $_COOKIE[$cokkie_key] . '"');
             if(count($cookieUsers) > 1){
                 $cookie_val = generateRundomString(32);
             }else{
@@ -49,7 +49,7 @@
             }
             
         }else{
-            $dicTokens = $rdb->actSelectAndKeySorting('SELECT token FROM table_customer', "token");
+            $dicTokens = $rdb->actSelectAndKeySorting('SELECT customer_token FROM customer_masters', "customer_token");
             do {
                 $cookie_val = generateRundomString(32);
             } while (isset($dicTokens[$cookie_val]));

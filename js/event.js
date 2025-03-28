@@ -123,7 +123,7 @@ function setErrorMsg(arrError){
 }
 function checkLoginUser(){
     if(dicUser){
-        let responce = Ajax({"flg":"checkLoginUser","token":dicUser["token"]});
+        let responce = Ajax({"flg":"check_login_user","token":dicUser["token"]});
         return responce["flg"];
     }else{
         return false;

@@ -12,7 +12,7 @@ async function click_Dialog_Events(e, data){
             result = Ajax(data, false);
 
             if(result["flg"]){
-                dicUser = result["data"];
+                dicUser = result["data"][0];
                 $("#dialog").fadeOut(200,()=>{
                     show_info("ログイン通知",[result["msg"]],{"type":"dialog", "value":"hide"});
                 })

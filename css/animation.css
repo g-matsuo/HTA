@@ -1,0 +1,128 @@
+.load_animation_a{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}.load_animation_a::before{
+    content: "";
+    position: absolute;
+    width: 30vw;
+    height: 30vw;
+    border: 10px solid rgba(255, 255, 255, 0.7);
+    border-bottom: 10px solid transparent;
+    border-radius: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    animation: rotateInner 5s linear infinite;
+}
+
+@keyframes rotateInner{
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/*-------------------------Spinner-------------------------*/
+.animation-spinner-box{
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}.animation-spinner-box > .spinner-text{
+    z-index: 1;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: clamp(10px, 1.5vw, 30px);
+
+}.animation-spinner-box > .spinner-box{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 25vw;
+    height: 25vw;
+
+}.spinner-box::before{
+    content: "";
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 5px solid rgb(121 121 121);
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    animation: configure-clockwise 5s ease-in-out 0s infinite alternate;
+    
+}.spinner-box::after{
+    content: "";
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 5px solid rgb(121 121 121);
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    transform: rotate(45deg);
+    animation: configure-xclockwise 5s ease-in-out 0s infinite alternate;
+}
+
+@keyframes configure-clockwise{
+    0% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes configure-xclockwise{
+    0% {
+        transform: rotate(45deg);
+    }
+    
+    25% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        transform: rotate(-135deg);
+    }
+    75% {
+        transform: rotate(-225deg);
+    }
+    100% {
+        transform: rotate(-315deg);
+    }
+}
+/*--------------------------------------------------------*/
+/*-------------------------Blink-------------------------*/
+.animation-blink{
+    animation: blink 1s ease-in-out 0s infinite alternate;
+}
+@keyframes blink{
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

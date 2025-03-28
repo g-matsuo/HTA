@@ -2,6 +2,7 @@
     position: fixed;
     background-color:rgb(176, 167, 255);
     border: 1px solid #7e7e7e;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;

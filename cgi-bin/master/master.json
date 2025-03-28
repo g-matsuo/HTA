@@ -9,6 +9,6 @@
         "host" : "192.168.56.100",
         "user" : "g-matsuo",
         "password" : "mord_reD15",
-        "schema" : "hta"
+        "schema" : "auction"
     }
 }

@@ -8,7 +8,7 @@
 
         //user
         if($_POST["token"] != "null"){
-            $user = $rdb->actSelect('SELECT * FROM table_customer WHERE token = "' . $_POST["token"] . '"');
+            $user = $rdb->actSelect('SELECT * FROM customer_masters WHERE customer_token = "' . $_POST["token"] . '"');
             $user = $user[0];
         }
 
@@ -16,6 +16,10 @@
         $result = ["flg" => true, "msg" => [], "data" => null];
 
         switch($_POST["flg"]){
+            case "master" :
+                $result = getMaster($rdb);
+                break;
+
             case "login" :
                 $result = checkLoginValue($result, $_POST["data"]);
 
@@ -24,7 +28,7 @@
                     
                     if($responce){
                         //cookie
-                        $rdb->actSql('UPDATE hta.table_customer SET token="' . $_COOKIE["PRICING_DATA_ORIGINAL_COOKIE"] . '" WHERE  id=' . $responce[0]["id"]);
+                        $rdb->actSql('UPDATE customer_masters SET customer_token="' . $_COOKIE["PRICING_DATA_ORIGINAL_COOKIE"] . '" WHERE  customer_display_code=' . $responce[0]["customer_display_code"]);
 
                         //data
                         $result["data"] = getLoginUser("login", $rdb, $_POST["data"]);
@@ -35,10 +39,29 @@
                     }
                 }
                 break;
-            case "hold" :
-
+            case "market_search_graph" :
+                $rdb->actSelect('
+                    SELECT * FROM test
+                ');
                 break;
-            case "checkLoginUser" :
+
+            case "get_market_downlist":
+                $result = $rdb->actSelectAndKeySorting('
+                    SELECT DISTINCT
+                        dh.category_code,
+                        dh.brand_code,
+                        cm.category_name,
+                        cm.category_name_english,
+                        bm.brand_name,
+                        bm.brand_name_english
+                    FROM
+                        detail_historys AS dh
+                    LEFT JOIN category_masters AS cm ON dh.category_code = cm.category_code
+                    LEFT JOIN brand_masters    AS bm ON dh.brand_code = bm.brand_code;
+                ', "category_code");
+                break;
+
+            case "check_login_user" :
                 if(!isset($user)){
                     $result["flg"] = false;
                 }

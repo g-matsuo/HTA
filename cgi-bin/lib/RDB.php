@@ -25,7 +25,7 @@
 
         public function actSelectAndKeySorting($sql, $key){
             $rtn = [];
-            $result = $this->rdb->query($sql);
+            $result = $this->actSelect($sql);
             
             foreach($result as $index => $rows){
                 if(!array_key_exists($rows[$key], $rtn)){

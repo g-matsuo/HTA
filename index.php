@@ -33,6 +33,7 @@
     <script>
         var dicParam = {};
         var dicFrontui = {};
+        var dicMaster = {};
         <?php echo 'var dicUser = JSON.parse(`' . json_encode($user[0], JSON_UNESCAPED_UNICODE) . '`);' . "\n"; ?>
         
         $(()=>{

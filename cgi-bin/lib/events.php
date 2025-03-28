@@ -1,19 +1,33 @@
 <?php
+    function getMaster($rdb){
+        $result = [];
+
+        $result["brand"] = $rdb->actSelect('
+            SELECT * FROM brand_masters
+        ');
+
+        $result["category"] = $rdb->actSelect('
+            SELECT * FROM category_masters
+        ');
+
+        return $result;
+    }
+
     function getLoginUser($flg, $rdb, $data = null){
-        $columns = "id, name, token";
+        $columns = "customer_display_code, company_name, customer_token";
 
         switch($flg){
             case "login":
                 return $rdb->actSelect('
-                    SELECT ' . $columns . ' FROM table_customer
-                    WHERE customer_no = "' . $data["login_id"] . '"
+                    SELECT ' . $columns . ' FROM customer_masters
+                    WHERE customer_display_code = "' . $data["login_id"] . '"
                     AND   password = "' . md5($data["login_password"]) . '"
                 ');
 
             case "cookie":
                 return $rdb->actSelect('
-                    SELECT ' . $columns . ' FROM table_customer
-                    WHERE token = "' . $_COOKIE["PRICING_DATA_ORIGINAL_COOKIE"] . '"
+                    SELECT ' . $columns . ' FROM customer_masters
+                    WHERE customer_token = "' . $_COOKIE["PRICING_DATA_ORIGINAL_COOKIE"] . '"
                 ');
         }
     }
