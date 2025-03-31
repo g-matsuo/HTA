@@ -45,4 +45,40 @@
 
         return $result;
     }
+
+    function checkMarketSearchValues($result, $data){
+        if($data["category_code"] !== "null" && $data["category_code"] !== "1" && $data["category_code"] !== "2" && $data["category_code"] !== "3"){
+            $result["msg"]["category"]  = "選択外が入力されました。";
+            $result["flg"] = false;
+        }
+
+        if($data["period"] !== "1" && $data["period"] !== "3" && $data["period"] !== "6"){
+            $result["msg"]["period"]  = "選択外が入力されました。";
+            $result["flg"] = false;
+        }
+
+        return $result;
+    }
+
+    function createSearchWhere($data){
+        $where = "";
+
+        $where .= "dh.updated_at >= DATE_SUB(NOW(), INTERVAL " . $data["period"] . " MONTH) AND ";
+
+        if($data["category_code"] !== "null"){
+            $where .= "dh.category_code = " . $data["category_code"] . " AND ";
+        }
+
+        if($data["brand_code"] !== "null"){
+            $where .= "dh.brand_code = " . $data["brand_code"] . " AND ";
+        }
+
+        if($data["model_number"] !== "" && $data["category_code"] === "1"){
+            $where .= 'dh.ref LIKE "%' . $data["model_number"] . '%" AND ';
+        }
+
+        $where = rtrim($where, " AND ");
+
+        return $where;
+    }
 ?>

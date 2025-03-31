@@ -99,7 +99,7 @@ function viewTopDownMove(target){
 function viewMenuMove(position_value){
     let menu_btn = $(".menu_button");
 
-    if(position_value=="-100%"){
+    if(position_value == "-100%"){
         menu_btn[0].attributes["status"].value = "false";
         menu_btn.removeClass('active');
     }else{

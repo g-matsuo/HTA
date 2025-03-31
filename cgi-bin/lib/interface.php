@@ -40,9 +40,32 @@
                 }
                 break;
             case "market_search_graph" :
-                $rdb->actSelect('
-                    SELECT * FROM test
-                ');
+                $result = checkMarketSearchValues($result, $_POST["data"]);
+
+                if($result["flg"]){
+                    $where = createSearchWhere($_POST["data"]);
+
+                    $result["data"] = $rdb->actSelect('
+                        SELECT
+                            dh.detail_code,
+                            dh.market_code,
+                            dh.box_code,
+                            dh.item_information,
+                            dh.brand_code,
+                            dh.category_code,
+                            dh.options,
+                            dh.before_price,
+                            dh.price,
+                            mi.market_name
+                        FROM      detail_historys AS dh
+                        LEFT JOIN market_informations AS mi ON dh.market_code = mi.market_code
+                        WHERE ' . $where .'
+                        AND   dh.price != 0
+                        AND   dh.hide_web_flag = 0
+                        ORDER BY dh.price DESC
+                    ');
+                }
+
                 break;
 
             case "get_market_downlist":
@@ -54,8 +77,7 @@
                         cm.category_name_english,
                         bm.brand_name,
                         bm.brand_name_english
-                    FROM
-                        detail_historys AS dh
+                    FROM      detail_historys  AS dh
                     LEFT JOIN category_masters AS cm ON dh.category_code = cm.category_code
                     LEFT JOIN brand_masters    AS bm ON dh.brand_code = bm.brand_code;
                 ', "category_code");

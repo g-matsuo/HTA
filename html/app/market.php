@@ -6,7 +6,7 @@
         <div>条件を設定して「検索」を押してください。</div>
     </div>
     
-    <div class="app_body" style="overflow: hidden;">
+    <div class="app_body">
         <div class="animation-spinner-box">
             <div class="spinner-text animation-blink">読み込み中です。</div>
             <div class="spinner-box"></div>
@@ -17,31 +17,69 @@
                 <select id="search_category">
                     <option category_name_english="null" category_code="null">カテゴリを選択してください。</option>
                 </select>
+                <div id="error_msg_category" class="error_msg" style="display:none;"></div>
             </div>
 
             <div id="market_search_brand" class="market_search_content">
                 <div class="market_caption">ブランド</div>
-                <input id="search_brand" type="text">
+                <div class="button market_brand_clear_button" type="app" value="market_brand_clear">クリア</div>
+                <input id="search_brand" type="text" brand_code="null" autocomplete="off">
                 <div class="app_matches_box"></div>
-            </div>
-
-            <div id="market_search_model_number" class="market_search_content">
-                <div class="market_caption">型番</div>
-                <input id="search_model_number" type="text">
+                <div id="error_msg_brand" class="error_msg" style="display:none;"></div>
             </div>
         </div>
 
+        <div class="market_search_elements responce_flex">
+            <div id="market_search_model_number" class="market_search_content">
+                <!--
+                <div class="market_search_model_number_mask position_center">
+                    カテゴリを「時計」に選択した時のみ入力が可能です。
+                </div>
+                -->
+                <div class="market_search_model_number_mask position_center">
+                    未実装
+                </div>
+                <div class="market_caption">型番</div>
+                <input id="search_model_number" type="text">
+                <div id="error_msg_model_number" class="error_msg" style="display:none;"></div>
+            </div>
+
+            <div id="market_search_period" class="market_search_content">
+                <div class="market_caption">期間</div>
+                <select id="search_period">
+                    <option value="1">過去１カ月</option>
+                    <option value="3">過去３カ月</option>
+                    <option value="6">過去６カ月</option>
+                </select>
+                <div id="error_msg_period" class="error_msg" style="display:none;"></div>
+            </div>
+        </div>
         <div class="button market_search_button" type="app" value="market_search_graph">検索</div>
-        <div class="search_content"></div>
+
+        <div class="search_content no_responce_flex">
+            <!-- lines -->
+            <div class="market_small_scale_container">
+                
+            </div>
+            <div class="market_large_scale_container">
+                
+            </div>
+
+            <!-- lines -->
+        </div>
     </div>
 
     <div class="app_button_group no_responce_flex">
         <div class="success_button app_buttons button" type="app" value="hide">CLOSE</div>
     </div>
 </div>
+
 <script>
     $(()=>{
         console.log("market_initalize");
+
+        //Set Scale Element
+        setScaleElement();
 
         //Set Scroll Range
         resize_scroll_filed($(".app_body"), $(".market_filed"), [$(".app_title"), $(".app_button_group"), $(".app_msg")]);
@@ -68,11 +106,60 @@
         resize_scroll_filed($(".app_body"), $(".market_filed"), [$(".app_title"), $(".app_button_group"), $(".app_msg")]);
     })
 
+    $('#search_category').off("change").on("change", (e)=>{
+        $('.app_matches_box').fadeOut(200, ()=>{
+            $('.app_matches_box').empty();
+            changeDownList();
+        });
+
+        if($(e.target).find('option:selected').attr('category_code') === "null"){
+            $('#search_brand').val("").attr("brand_code", "null");
+        }
+
+        //if($(e.target).find('option:selected').attr('category_code') === "1"){
+        //    $(".market_search_model_number_mask").fadeOut();
+        //}else{
+        //    $(".market_search_model_number_mask").fadeIn();
+        //}
+    })
+
     $('#search_brand').off("input").on('input', ()=>{
+        $('.app_matches_box').attr("brand_code", "null");
+        changeDownList();
+    });
+
+    function setScaleElement(){
+        let number;
+        const smallContainer = document.querySelector('.market_small_scale_container');
+        const largeContainer = document.querySelector('.market_large_scale_container');
+
+        //Small scale lines（1〜19, 5の倍数を除く）
+        for (number = 1; number < 40; number++) {
+            if(number < 10){
+                const line = document.createElement('div');
+                line.className = 'market_small_scale_line';
+                line.style.bottom = `${number * 4}%`;
+                smallContainer.appendChild(line);
+            }else{
+                const line = document.createElement('div');
+                line.className = 'market_small_scale_line';
+                line.style.bottom = `${42 + (number - 10) * 2}%`;
+                smallContainer.appendChild(line);
+            }
+        }
+
+        //Large scale lines（0, 20, 40, 60, 80, 100%）
+        for (number = 1; number < 5; number++) {
+            const line = document.createElement('div');
+            line.className = 'market_large_scale_line';
+            line.style.bottom = `${number * 20}%`;
+            largeContainer.appendChild(line);
+        }
+    }
+
+    function changeDownList(){
         let text = $('#search_brand').val();
         let category_code = $('#search_category option:selected').attr("category_code");
-        
-        $('.app_matches_box').empty();
 
         if(category_code != "null" && text != ""){
             let matches = dicMaster.CategoryBrand[category_code].filter(item => {
@@ -80,25 +167,25 @@
                     (item.brand_name && item.brand_name.includes(text)) ||
                     (item.brand_name_english && item.brand_name_english.includes(text))
                 );
-
             });
 
-            if(matches.length == 0){
-                $('.app_matches_box').fadeOut();
-
-            }else if(matches.length == 1){
-                $('#search_brand').val("");
-                $('#search_brand').val(matches[0].brand_name + "(" + matches[0].brand_name_english + ")");
-                $('#search_brand').attr("brand_code", matches[0].brand_code);
-                $('.app_matches_box').fadeOut();
-                
-            }else{
+            if(matches.length){
+                $('.app_matches_box').empty();
                 matches.forEach(item => {
                     $('.app_matches_box').append('<div class="app_matches_item button" type="app" value="select_matches_item" brand_code="' + item.brand_code + '">' + item.brand_name + '<br>(' + item.brand_name_english + ')</div>');
                 });
-
                 $('.app_matches_box').fadeIn();
+
+            }else{
+                $('.app_matches_box').fadeOut(200, ()=>{
+                    $('.app_matches_box').empty();
+                });
             }
+
+        }else{
+            $('.app_matches_box').fadeOut(200, ()=>{
+                $('.app_matches_box').empty();
+            });
         }
-    });
+    }
 </script>
