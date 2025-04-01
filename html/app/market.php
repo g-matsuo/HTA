@@ -133,7 +133,7 @@
         const smallContainer = document.querySelector('.market_small_scale_container');
         const largeContainer = document.querySelector('.market_large_scale_container');
 
-        //Small scale lines（1〜19, 5の倍数を除く）
+        //Small scale lines
         for (number = 1; number < 40; number++) {
             if(number < 10){
                 const line = document.createElement('div');
@@ -148,11 +148,35 @@
             }
         }
 
-        //Large scale lines（0, 20, 40, 60, 80, 100%）
-        for (number = 1; number < 5; number++) {
+        //Large scale lines
+        for (number = 1; number <= 5; number++) {
             const line = document.createElement('div');
             line.className = 'market_large_scale_line';
             line.style.bottom = `${number * 20}%`;
+
+            switch(number){
+                case 1:
+                    $(line).attr("line_price", "50000");
+                    $(line).append('<div class="market_large_scale_plice_label">50,000</div>')
+                    break;
+                case 2:
+                    $(line).attr("line_price", "100000");
+                    $(line).append('<div class="market_large_scale_plice_label">100,000</div>')
+                    break;
+                case 3:
+                    $(line).attr("line_price", "1000000");
+                    $(line).append('<div class="market_large_scale_plice_label">1,000,000</div>')
+                    break;
+                case 4:
+                    $(line).attr("line_price", "5000000");
+                    $(line).append('<div class="market_large_scale_plice_label">5,000,000</div>')
+                    break;
+                case 5:
+                    $(line).attr("line_price", "10000000");
+                    $(line).append('<div class="market_large_scale_plice_label">10,000,000</div>')
+                    break;
+                default:
+            }
             largeContainer.appendChild(line);
         }
     }

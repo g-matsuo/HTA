@@ -67,7 +67,6 @@
                 }
 
                 break;
-
             case "get_market_downlist":
                 $result = $rdb->actSelectAndKeySorting('
                     SELECT DISTINCT

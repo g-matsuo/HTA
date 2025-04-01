@@ -104,8 +104,19 @@
     width: 100%;
     border-top: 2px dashed #444;
     height: 1px;
+}.market_large_scale_plice_label{
+    background-color: black;
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    transform: translate(0%, -50%);
+    top: 50%;
+    left: 0;
+    padding: 0px 5px;
+    border-radius: 0px 10px 10px 0px;
 }
-    
+
 .market_result_graphs{
     width: 20px;
 
