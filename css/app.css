@@ -85,7 +85,7 @@
     border-right: 1px solid gray;
     border-bottom: 1px solid gray;
     overflow-y: auto;
-    z-index: 5;
+    z-index: 30;
 }
 
 .app_matches_item{

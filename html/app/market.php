@@ -58,12 +58,8 @@
 
         <div class="search_content no_responce_flex">
             <!-- lines -->
-            <div class="market_small_scale_container">
-                
-            </div>
-            <div class="market_large_scale_container">
-                
-            </div>
+            <div class="market_small_scale_container"></div>
+            <div class="market_large_scale_container"></div>
 
             <!-- lines -->
         </div>

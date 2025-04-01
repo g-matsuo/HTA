@@ -97,6 +97,7 @@
     width: 100%;
     border-top: 1px dashed #ccc;
     height: 1px;
+    z-index: 4;
 }
 
 .market_large_scale_line {
@@ -104,6 +105,8 @@
     width: 100%;
     border-top: 2px dashed #444;
     height: 1px;
+    z-index: 5;
+
 }.market_large_scale_plice_label{
     background-color: black;
     color: white;
@@ -115,8 +118,15 @@
     left: 0;
     padding: 0px 5px;
     border-radius: 0px 10px 10px 0px;
+    z-index: 5;
 }
 
+.graph_element{
+    width: 30px;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+}
 .market_result_graphs{
     width: 20px;
 
