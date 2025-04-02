@@ -1,29 +1,25 @@
 .page_market_filed{
-    width: 100%;
     height: fit-content;
     margin: 10px auto;
     font-size: 15px;
 }
 
 .page_market_blade{
-    width: 1200px;
     margin: auto;
 }
 
 .page_market_late_container{
+    width: 80%;
     height: fit-content;
 }
 
 .page_market_late_flex_group{
     margin: auto;
-    width: fit-content;
 }
 
 .page_market_late_box {
     background-color: rgb(255, 255, 255);
-    width: fit-content;
     height: fit-content;
-    margin: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .16);
     white-space: nowrap;
     padding: 10px 20px;
@@ -54,25 +50,145 @@
 
 .page_market_late_container_date{
     text-align: right;
+}
+
+.page_market_gold_late_container{
+    height: fit-content;
+    white-space: nowrap;
+    margin-left: auto;
+
+}.page_market_gold_late_group{
+    background-color: white;
+    height: fit-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .16);
+
+}.page_market_gold_late_group .page_market_gold_late_box:nth-child(1){
+    border-bottom: 1px inset;
+    
+}.page_market_gold_late_box{
+    margin: auto;
+    width: 90%;
+    padding: 5px 0;
+
+}.page_market_gold_label{
+    width: fit-content;
+    margin-right: auto;
+    margin-left: 15px;
+
+}.page_market_gold_label > div{
+    width: fit-content;
+    height: 100%;
+    margin-right: auto;
+
+}.page_market_gold_price{
+    width: fit-content;
+    margin-left: auto;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 20px;
+
+}
+
+.page_market_label_block{
+    width: fit-content;
+    margin: 0 10px;
+}.page_market_label_block > img{
+    width: 30px;
+    height: 30px;
+    margin: auto;
     margin-right: 10px;
 }
 
+.search_categorys label{
+    display: inline-block;
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+.page_market_search_caption{
+    font-size: 22px;
+    white-space: nowrap;
+}
+
+.page_market_text_input{
+    border: 1px solid hsla(0, 0%, 79.2%, .70196);
+    border-radius: 4px;
+    padding: 0 16px;
+    font-size: 18px;
+    height: 44px;
+    flex-grow: 1;
+}
+
+.page_market_label_organize{
+    margin: 0 10px;
+}.page_market_label_organize label{
+    display: block;
+}
+
 @media screen and (min-width:801px){
+    .page_market_filed{
+        min-width: 1200px;
+    }
+
+    .page_market_late_flex_group{
+        width: 100%;
+    }
+
+    .page_market_late_box{
+        width: 100%;
+        margin: 0 5px;
+    }
+
     .page_market_late_container{
         width: 50%;
+        margin-right: 10px;
     }
 
     .page_market_gold_late_container{
         width: 50%;
+    }
+
+    .page_market_gold_late_group{
+        width: 100%;
+        margin-right: auto;
+
+    }
+
+    .page_market_blade{
+        margin: auto;
+        max-width: 1200px;
+    }
+
+    .page_market_late_container_date{
+        margin-right: 10px;
     }
 }
 
 @media screen and (max-width:800px){
     .page_market_late_container{
+        margin: auto;
+    }
+
+    .page_market_late_flex_group{
         width: 100%;
+    }
+    
+    .page_market_late_box{
+        margin: 5px auto;
     }
 
     .page_market_gold_late_container{
+        width: 80%;
+        margin: auto;
+    }
+
+    .page_market_gold_late_group{
+        margin: auto;
+
+    }
+
+    .page_market_blade{
         width: 100%;
+        margin: auto;
     }
 }
