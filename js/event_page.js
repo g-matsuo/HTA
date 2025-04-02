@@ -21,10 +21,9 @@ function click_Page_Events(e, data){
 
         case "market":
             $('.top_menu_filed').slideUp(300,()=>{
-                $('.top_filed').css("opacity", "0").load("./html/component/market.php", ()=>{
-                    $('.top_filed').animate({ opacity: 1}, 300);
+                $('.top_filed').load("./html/component/market.php", ()=>{
+                    $('.top_filed').slideDown(10000);
                 });;
-                
             });
 
             //show_app(data["flg"], "php");

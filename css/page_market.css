@@ -1,21 +1,78 @@
 .page_market_filed{
     width: 100%;
     height: fit-content;
-    background-color: rgb(255, 255, 255);
-    margin: auto;
+    margin: 10px auto;
     font-size: 15px;
 }
 
+.page_market_blade{
+    width: 1200px;
+    margin: auto;
+}
+
+.page_market_late_container{
+    height: fit-content;
+}
+
+.page_market_late_flex_group{
+    margin: auto;
+    width: fit-content;
+}
+
+.page_market_late_box {
+    background-color: rgb(255, 255, 255);
+    width: fit-content;
+    height: fit-content;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .16);
+    white-space: nowrap;
+    padding: 10px 20px;
+}
+
+.page_market_country_info{
+    width: 50%;
+    margin: 0 10px;
+
+}.page_market_country_text{
+    width: fit-content;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px auto 0 auto;
+
+}.page_market_country_image_box{
+    width: fit-content;
+    margin: 0 auto 20px auto;
+
+}.page_market_country_image_box img{
+    margin: 0 0 auto 0;
+    padding: 5px;
+}
+
+.page_market_country_late_text{
+    padding: 20px;
+}
+
+.page_market_late_container_date{
+    text-align: right;
+    margin-right: 10px;
+}
+
 @media screen and (min-width:801px){
-    .market_search_content{
-        width: 100%;
-        margin: 0 5px;
+    .page_market_late_container{
+        width: 50%;
+    }
+
+    .page_market_gold_late_container{
+        width: 50%;
     }
 }
 
 @media screen and (max-width:800px){
-    .market_search_content{
-        margin: 5px 0;
+    .page_market_late_container{
+        width: 100%;
     }
 
+    .page_market_gold_late_container{
+        width: 100%;
+    }
 }
