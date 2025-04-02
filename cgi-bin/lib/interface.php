@@ -62,7 +62,7 @@
                         WHERE ' . $where .'
                         AND   dh.price != 0
                         AND   dh.hide_web_flag = 0
-                        ORDER BY dh.price DESC
+                        ORDER BY dh.updated_at DESC
                     ');
                 }
 

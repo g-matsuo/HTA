@@ -1,5 +1,17 @@
+:root {
+    --responce-width-pc: 801px;
+    --responce-width-sp: 800px;
+    --bar-width: 30px;
+    --base-padding: 10px;
+}
+
+* {
+    transition: transform 0.3s ease;
+}
+
 html{
     position: relative;
+    background-color: #f3f3f3;
 }
 
 body{
@@ -7,7 +19,7 @@ body{
 }
 
 header{
-    height: 200px;
+    height: 200px
 }
 
 content{

@@ -1,4 +1,4 @@
-<div class="hold_filed">
+<div class="negotiation_filed">
     <div class="app_title">TtileCheck</div>
     
     <div class="app_msg">
@@ -17,10 +17,10 @@
 </div>
 <script>
     $(()=>{
-        resize_scroll_filed($(".app_body"), $(".hold_filed"), [$(".app_title"), $(".app_button_group"), $(".app_msg")]);
+        resize_scroll_filed($(".app_body"), $(".negotiation_filed"), [$(".app_title"), $(".app_button_group"), $(".app_msg")]);
     })
 
     $(window).off("resize").on("resize", ()=>{
-        resize_scroll_filed($(".app_body"), $(".hold_filed"), [$(".app_title"), $(".app_button_group"), $(".app_msg")]);
+        resize_scroll_filed($(".app_body"), $(".negotiation_filed"), [$(".app_title"), $(".app_button_group"), $(".app_msg")]);
     })
 </script>

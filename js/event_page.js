@@ -7,7 +7,7 @@ function click_Page_Events(e, data){
             show_dialog(data["flg"], "php");
             break;
 
-        case "hold":
+        case "negotiation":
             if(checkLoginUser()){
                 show_app(data["flg"], "php");
             }else{
@@ -20,7 +20,14 @@ function click_Page_Events(e, data){
             break;
 
         case "market":
-            show_app(data["flg"], "php");
+            $('.top_menu_filed').slideUp(300,()=>{
+                $('.top_filed').css("opacity", "0").load("./html/component/market.php", ()=>{
+                    $('.top_filed').animate({ opacity: 1}, 300);
+                });;
+                
+            });
+
+            //show_app(data["flg"], "php");
             break;
 
         default:

@@ -4,6 +4,12 @@
     align-items: center;
 }
 
+.position_bottom{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
 .background_default{
     background-size: cover;
     background-position: center;

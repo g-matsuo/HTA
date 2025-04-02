@@ -30,6 +30,7 @@ function click_App_Events(e, data){
             })
 
             if(responce["flg"]){
+                $('.graph_element').remove();
                 setMarketGraph(responce["data"]);
                 console.log("true");
             }else{
@@ -63,13 +64,13 @@ function setMarketGraph(arr){
     scaleLines.sort((a, b) => a.price - b.price);
 
     arr.forEach((data, index) => {
-        const value = parseInt(data.price);
-        const bottom = getBottomByPrice(value, scaleLines);
+        let value = parseInt(data.price);
+        let bottom = getBottomByPrice(value, scaleLines);
+        let bar = document.createElement('div');
 
-        const bar = document.createElement('div');
         bar.className = 'graph_element';
         bar.style.right = `${(index * 35) + 10}px`;
-        bar.style.height = `${bottom}%`;
+        bar.style.height = `${(bottom / $('.search_content').height()) * 100}%`;
 
         document.querySelector('.search_content').appendChild(bar);
     });

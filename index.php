@@ -26,7 +26,7 @@
         <div id="app"        class="front_ui"></div>
         <div id="info"       class="front_ui"></div>
 
-        <header class="frame_element"></header>
+        <header></header>
         <content></content>
     </body>
 
@@ -41,8 +41,6 @@
         })
 
         $(document).on('click', '.button', (e)=>{
-            click_Events(e);
-
 			if (dicParam["event_flg"]){
                 $(".button").removeClass("select_button");
 				$(e.target).addClass("select_button");
@@ -53,9 +51,11 @@
 					dicParam["event_flg"] = true;
 				}, 350);
 
+                click_Events(e);
 			}else{
 				console.log("wait:" + e.currentTarget.attributes["value"].value);
 			}
+
         });
 
     </script>

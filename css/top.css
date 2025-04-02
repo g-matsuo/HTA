@@ -1,3 +1,19 @@
+.top_filed{
+}.top_filed::before{
+    content: "";
+    width: 65%;
+    height: 2px;
+    background-color: rgb(63, 73, 83);
+    margin: auto;
+    display: block;
+}
+
+.top_menu_filed{
+    padding: 0 0 30px 0;
+    background-color: white;
+    transition: transform 0.5s ease;
+}
+
 .top_container{
     background-image: url(/image/msg_bk_a.png);
 }
@@ -8,8 +24,26 @@
     width: 30vw;
     height: 30vw;
     border-radius: 50%;
+    border-bottom: 5px solid rgb(63, 73, 83);
+    font-size: 20px;
     margin: auto;
+
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+}.top_menus > div{
+    margin-bottom: 5px;
+    color: rgb(63, 73, 83);
 }
+
+.top_menus_login{
+    background-image: url(/image/login_icon.png);
+}.top_menus_negotiation{
+    background-image: url(/image/negotiation_icon.png);
+}.top_menus_market{
+    background-image: url(/image/market_icon.png);
+}
+
 
 .top_msg_group{
     height: fit-content;
