@@ -1,10 +1,3 @@
-:root {
-    --responce-width-pc: 801px;
-    --responce-width-sp: 800px;
-    --bar-width: 30px;
-    --base-padding: 10px;
-}
-
 * {
     transition: transform 0.3s ease;
 }
@@ -88,6 +81,10 @@ footer{
 }
 
 @media screen and (min-width:801px){
+    header{
+        min-width: 1200px;
+    }
+    
     .responce_flex{
         display: flex;
     }
@@ -95,7 +92,4 @@ footer{
 }
 
 @media screen and (max-width:800px){
-    html{
-        min-width: 400px;
-    }
 }

@@ -9,7 +9,7 @@
 }
 
 .page_market_late_container{
-    width: 80%;
+    width: 100%;
     height: fit-content;
 }
 
@@ -22,7 +22,7 @@
     height: fit-content;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .16);
     white-space: nowrap;
-    padding: 10px 20px;
+    padding: 5px 20px;
 }
 
 .page_market_country_info{
@@ -91,17 +91,14 @@
 
 .page_market_label_block{
     width: fit-content;
-    margin: 0 10px;
 }.page_market_label_block > img{
-    width: 30px;
-    height: 30px;
-    margin: auto;
-    margin-right: 10px;
+    width: 20px;
+    height: 20px;
 }
 
 .search_categorys label{
     display: inline-block;
-    margin-right: 1em;
+    margin-right: 5px;
     cursor: pointer;
 }
 
@@ -121,8 +118,13 @@
 
 .page_market_label_organize{
     margin: 0 10px;
+    white-space: nowrap;
 }.page_market_label_organize label{
     display: block;
+}
+
+.page_market_input_block{
+    width: 100%;
 }
 
 @media screen and (min-width:801px){
@@ -149,18 +151,33 @@
     }
 
     .page_market_gold_late_group{
-        width: 100%;
-        margin-right: auto;
+        width: 80%;
+        margin-left: auto;
 
     }
 
     .page_market_blade{
-        margin: auto;
         max-width: 1200px;
+        margin: 0px auto 50px auto;
     }
 
     .page_market_late_container_date{
         margin-right: 10px;
+    }
+
+    .page_market_label_block{
+        /*margin: 0 100px 0 10px;*/
+        width: 30%;
+    }.page_market_label_block * {
+        margin-right: auto;
+    }
+
+    .page_market_label_block > img{
+        margin: auto 10px auto auto;
+    }
+
+    .page_search_button{
+        margin-top: auto;
     }
 }
 
@@ -178,7 +195,7 @@
     }
 
     .page_market_gold_late_container{
-        width: 80%;
+        width: 100%;
         margin: auto;
     }
 
@@ -188,7 +205,23 @@
     }
 
     .page_market_blade{
-        width: 100%;
-        margin: auto;
+        width: 80%;
+        margin: 0px auto 50px auto;
+    }
+
+    .page_market_label_block{
+        /*margin: 10px 0;*/
+        width: fit-content;
+    }.page_market_label_block * {
+        margin-right: auto;
+    }
+
+    .page_market_label_block > img{
+        margin: 5px 10px 0px 0;
+    }
+
+    .page_search_button{
+        width: 50% !important;
+        margin: 10px auto 0 auto;
     }
 }
