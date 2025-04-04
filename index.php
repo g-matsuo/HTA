@@ -34,6 +34,7 @@
         var dicParam = {};
         var dicFrontui = {};
         var dicMaster = {};
+        var socket;
         <?php echo 'var dicUser = JSON.parse(`' . json_encode($user[0], JSON_UNESCAPED_UNICODE) . '`);' . "\n"; ?>
         
         $(()=>{
@@ -57,6 +58,5 @@
 			}
 
         });
-
     </script>
 </html>

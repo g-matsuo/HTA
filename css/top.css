@@ -36,11 +36,13 @@
 }
 
 .top_menus_login{
-    background-image: url(/image/login_icon.png);
+    background-image: url(/image/ic_login.png);
 }.top_menus_negotiation{
-    background-image: url(/image/negotiation_icon.png);
+    background-image: url(/image/ic_negotiation.png);
 }.top_menus_market{
-    background-image: url(/image/market_icon.png);
+    background-image: url(/image/ic_market.png);
+}.top_menus_devil{
+    background-image: url(/image/ic_devil.png);
 }
 
 

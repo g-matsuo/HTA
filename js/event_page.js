@@ -29,6 +29,10 @@ function click_Page_Events(e, data){
             //show_app(data["flg"], "php");
             break;
 
+        case "sync":
+            sendMessage("Access!!");
+            break;
+
         default:
             console.log("PageEvents:「" + e.target.attributes["value"].value + "」なんて処理されないよ！")
     }

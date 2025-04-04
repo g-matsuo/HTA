@@ -22,4 +22,5 @@ return array(
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'Evenement\\' => array($vendorDir . '/evenement/evenement/src'),
     'CreateCraft\\' => array($baseDir . '/lib'),
+    'App\\' => array($baseDir . '/cgi-bin/api/sync-server'),
 );

@@ -4,7 +4,8 @@
     },
     "autoload": {
         "psr-4": {
-            "CreateCraft\\": "lib/"
+            "CreateCraft\\": "lib/",
+            "App\\": "cgi-bin/api/sync-server/"
         }
     }
 }
