@@ -30,7 +30,8 @@ function click_Page_Events(e, data){
             break;
 
         case "sync":
-            sendMessage("Access!!");
+            //sendMessage("Access!!");
+            alert('この技術は非常に高性能なので、隠しますね^q^')
             break;
 
         default:
