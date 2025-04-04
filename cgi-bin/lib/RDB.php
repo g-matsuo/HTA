@@ -1,7 +1,9 @@
 <?php
+    namespace CreateCraft;
+
     class RDB{
         public function __construct($host, $user, $password, $db){
-            $this->rdb = new mysqli($host, $user, $password, $db);
+            $this->rdb = new \mysqli($host, $user, $password, $db);
     
             if (mysqli_connect_error()){
                 $this->rdb = false;

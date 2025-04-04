@@ -1,5 +1,4 @@
-.top_filed{
-}.top_filed::before{
+.top_filed::before{
     content: "";
     width: 65%;
     height: 2px;
@@ -68,6 +67,10 @@
 @media screen and (min-width:801px){
     .top_button_group, .top_msg_group{
         width: 50%;
+    }
+
+    .top_filed{
+        min-width: 1200px;
     }
 }
 

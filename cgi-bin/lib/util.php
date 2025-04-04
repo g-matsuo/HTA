@@ -1,4 +1,7 @@
 <?php
+    require_once('./cgi-bin/vendor/autoload.php');
+    use CreateCraft\RDB;
+    
     function init_PHP_Process(){
         //Mysql
         $master = json_decode(file_get_contents("./cgi-bin/master/master.json"), true);
